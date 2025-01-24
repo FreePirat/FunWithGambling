@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <nav class="menu">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+    </nav>
+    <button class="menu-button" onclick="toggleMenu()">☰</button>
+
+    <script>
+        const menu = document.querySelector('.menu');
+        const button = document.querySelector('.menu-button');
+    
+        function toggleMenu() {
+          menu.classList.toggle('open');
+        }
+      </script>
+
+    <main>
+    <h2 class="center">Welcome to My Gambling Site</h2>
+
+    <footer>
+        <p>Contact Me</p>
+        <p>Jakennik01@gmail.com</p>
+    </footer>
+    </main>
+
+</body>
+</html>

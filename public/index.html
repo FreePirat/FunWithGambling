@@ -8,11 +8,47 @@
 </head>
 <body>
 
+    <header>
+        <h1 class="header-title">Fun With Gambling!!!</h1>
+
+        <button class="avatar-btn" id="avatarBtn">
+          <div id="avatar" class="guest-avatar"></div>
+        </button>
+    </header>
+
+    <script>
+        let isSignedIn = false;
+        const avatarButton = document.getElementById('avatarBtn');
+        const avatar = document.getElementById('avatar');
+    
+        function updateAvatar() {
+          if (isSignedIn) {
+            avatar.classList.remove('guest-avatar');
+            avatar.classList.add('profile-avatar');
+          } else {
+            avatar.classList.remove('profile-avatar');
+            avatar.classList.add('guest-avatar');
+          }
+        }
+    
+        avatarButton.addEventListener('click', () => {
+          if (isSignedIn) {
+            alert('Go to your profile page.');
+          } else {
+            alert('Please sign in.');
+          }
+        });
+
+        updateAvatar();
+      </script>
+
     <nav class="menu">
         <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
+        <a href="#game">Games</a>
         <a href="#contact">Contact</a>
+        <div class="menu-footer">
+            &copy; 2025 Fun With Gambling
+        </div>
     </nav>
     <button class="menu-button" onclick="toggleMenu()">☰</button>
 
@@ -26,11 +62,52 @@
       </script>
 
     <main>
-    <h2 class="center">Welcome to My Gambling Site</h2>
+    <br/>
+    <div class="center">
+    <h1 class="section">Welcome to My Gambling Site</h1>
+    </div>
 
+    <p class="textbox center">
+        To explore other pages, click the button on the left to open the menu. 
+        From there, you can select where you'd like to go.<br/>
+        Your profile is located in the top-right corner.<br/></br/> 
+        <b>Please note that an account is required to access and play games.</b>
+    </p>
+
+    <div class="center">
+    <h1 class="section">The Goal of This Site</h1>
+    </div>
+
+    <p class="textbox center">
+        Gambling in games can be an entertaining pastime, but introducing real money
+        can quickly turn it into a serious issue. The goal of this website is to
+        provide users with the excitement of gambling games without the need to
+        spend actual money.
+    </p>
+
+    <div class="center">
+    <h1 class="section">About The Creator</h1>
+    </div>
+
+    <p class="textbox center">
+        Hi, I'm Jake Soucy!<br/><br/>
+
+        I'm a bilingual Software Engineer and recent graduate of NBCC, passionate 
+        about programming and pushing the boundaries of my skills. I specialize 
+        in web development and software engineering, and I'm always eager to tackle
+        new challenges.<br/><br/>
+
+        If you're looking for a dedicated and skilled developer for your next project, 
+        feel free to contact me—I’d be happy to connect!
+    </p>
+
+    <br/><br/><br/><br/><br/><br/><br/>
     <footer>
-        <p>Contact Me</p>
-        <p>Jakennik01@gmail.com</p>
+    <p>
+        &copy; 2025 Fun With Gambling | <a href="#">Contact Me</a> |
+        <a href="https://freepirat.github.io/jakesoucy.github.io/">My Portfolio</a> |
+        <a href="https://www.linkedin.com/in/jake-soucy-38b540260/">My LinkedIn</a>
+    </p>
     </footer>
     </main>
 

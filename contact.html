@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+    <h1 class="header-title">Welcome to the Contact Form</h1>
+    <button class="avatar-btn" id="avatarBtn">
+        <div id="avatar" class="guest-avatar"></div>
+    </button>
+</header>
+<script>
+    let isSignedIn = false;
+    const avatarButton = document.getElementById('avatarBtn');
+    const avatar = document.getElementById('avatar');
+    
+    function updateAvatar() {
+        if (isSignedIn) {
+            avatar.classList.remove('guest-avatar');
+            avatar.classList.add('profile-avatar');
+        } else {
+            avatar.classList.remove('profile-avatar');
+            avatar.classList.add('guest-avatar');
+        }
+    }
+    
+    avatarButton.addEventListener('click', () => {
+        if (isSignedIn) {
+            alert('Go to your profile page.');
+        } else {
+            alert('Please sign in.');
+        }
+    });
+
+    updateAvatar();
+</script>
+
+<nav class="menu">
+    <a href="index.html">Home</a>
+    <a href="#game">Games</a>
+    <a href="contact.html">Contact</a>
+    <div class="menu-footer">
+        &copy; 2025 Fun With Gambling
+    </div>
+</nav>
+<button class="menu-button" onclick="toggleMenu()">☰</button>
+
+<script>
+    const menu = document.querySelector('.menu');
+    const button = document.querySelector('.menu-button');
+    
+    function toggleMenu() {
+        menu.classList.toggle('open');
+    }
+</script>
+<main>
+<br/>
+<div class="center">
+    <h1 class="section">For business inquiries, feel free to contact me by sending me a message here.</h1>
+</div>
+
+<form action="https://api.web3forms.com/submit" method="POST">
+    <input type="hidden" name="access_key" value="74a20f8a-ae66-4a7f-a0ee-477e14078a5d">
+
+    <label for="name">Your Name:</label>
+    <input type="text" id="name" name="name" required>
+    
+    <label for="email">Your Email:</label>
+    <input type="email" id="email" name="_replyto" required>
+    
+    <label for="message">Message:</label>
+    <textarea id="message" name="message" required></textarea>
+    
+    <button type="submit">Send</button>
+</form>
+
+<div class="center">
+    <h1 class="section">Other places you can find me:</h1>
+</div>
+
+<div class="textbox center">
+    <a href="https://www.linkedin.com/in/jake-soucy-38b540260/">
+        <img src="img/LinkedIn.png">
+    </a>
+    <a href="https://github.com/FreePirat">
+        <img src="img/GitHub.png">
+    </a>
+    <a href="https://piratdimentyt.itch.io/">
+        <img src="img/Itchio.png">
+    </a>
+</div>
+<br/><br/>
+<footer>
+    <p>
+        <a href="index.html">&copy;2025 Fun With Gambling</a> | 
+        <a href="contact.html">Contact Me</a> |
+        <a href="https://freepirat.github.io/jakesoucy.github.io/">My Portfolio</a> |
+        <a href="https://www.linkedin.com/in/jake-soucy-38b540260/">My LinkedIn</a>
+    </p>
+</footer>
+</main>
+</body>
+</html>

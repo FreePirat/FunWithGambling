@@ -42,8 +42,7 @@ body {
     background-color: #27003a;
     display: flex;
     flex-direction: column;
-    padding: 20px;
-    padding-left: 0;
+    padding-bottom: 20px;
     transition: left 0.3s ease;
     z-index: 100;
   }
@@ -64,7 +63,6 @@ body {
     margin-top: auto; 
     padding-top: 20px; 
     font-size: xx-large; 
-    margin-bottom: 5%;
     background-color: #07004b
   } 
 
@@ -83,7 +81,7 @@ body {
   }
 
   main {
-    margin-left: 75px;
+    margin-left: 60px;
     transition: margin-left 0.3s ease;
   }
 
@@ -211,4 +209,24 @@ body {
   .textbox img{
     width: 200px;
     height: 200px;
+  }
+
+  @media (max-width: 768px) {
+    .menu {
+      left: -300px;
+      width: 300px;
+      padding-left: 0px;
+    }
+
+    .menu.open + .menu-button {
+      left: 300px;
+    }
+
+    label, input, textarea, button {
+      width: 80%;
+    }
+
+    main{
+      margin-left: 50px;
+    }
   }

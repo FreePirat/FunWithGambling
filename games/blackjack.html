@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blackjack</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+<header>
+    <h1 class="header-title">Let's Play Blackjack</h1>
+    <button class="avatar-btn" id="avatarBtn">
+        <div id="avatar" class="guest-avatar"></div>
+    </button>
+</header>
+<script>
+    let isSignedIn = false;
+    const avatarButton = document.getElementById('avatarBtn');
+    const avatar = document.getElementById('avatar');
+    
+    function updateAvatar() {
+        if (isSignedIn) {
+            avatar.classList.remove('guest-avatar');
+            avatar.classList.add('profile-avatar');
+        } else {
+            avatar.classList.remove('profile-avatar');
+            avatar.classList.add('guest-avatar');
+        }
+    }
+    
+    avatarButton.addEventListener('click', () => {
+        if (isSignedIn) {
+            alert('Go to your profile page.');
+        } else {
+            alert('Please sign in.');
+        }
+    });
+
+    updateAvatar();
+</script>
+
+<nav class="menu">
+    <a href="../index.html">Home</a>
+    <a href="../game.html">Games</a>
+    <a href="../contact.html">Contact</a>
+    <div class="menu-footer">
+        &copy; 2025 Fun With Gambling
+    </div>
+</nav>
+<button class="menu-button" onclick="toggleMenu()">☰</button>
+
+<script>
+    const menu = document.querySelector('.menu');
+    const button = document.querySelector('.menu-button');
+    
+    function toggleMenu() {
+        menu.classList.toggle('open');
+    }
+</script>
+<main>
+<br/>
+
+<br/>
+<footer>
+    <p>
+        <a href="../index.html">&copy;2025 Fun With Gambling</a> | 
+        <a href="../contact.html">Contact Me</a> |
+        <a href="https://freepirat.github.io/jakesoucy.github.io/">My Portfolio</a> |
+        <a href="https://www.linkedin.com/in/jake-soucy-38b540260/">My LinkedIn</a>
+    </p>
+</footer>
+</main>
+</body>
+</html>

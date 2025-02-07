@@ -13,31 +13,6 @@
         <div id="avatar" class="guest-avatar"></div>
     </button>
 </header>
-<script>
-    let isSignedIn = false;
-    const avatarButton = document.getElementById('avatarBtn');
-    const avatar = document.getElementById('avatar');
-    
-    function updateAvatar() {
-        if (isSignedIn) {
-            avatar.classList.remove('guest-avatar');
-            avatar.classList.add('profile-avatar');
-        } else {
-            avatar.classList.remove('profile-avatar');
-            avatar.classList.add('guest-avatar');
-        }
-    }
-    
-    avatarButton.addEventListener('click', () => {
-        if (isSignedIn) {
-            alert('Go to your profile page.');
-        } else {
-            alert('Please sign in.');
-        }
-    });
-
-    updateAvatar();
-</script>
 
 <nav class="menu">
     <a href="../index.html">Home</a>
@@ -47,16 +22,10 @@
         &copy; 2025 Fun With Gambling
     </div>
 </nav>
-<button class="menu-button" onclick="toggleMenu()">☰</button>
+<button class="menu-button">☰</button>
 
-<script>
-    const menu = document.querySelector('.menu');
-    const button = document.querySelector('.menu-button');
-    
-    function toggleMenu() {
-        menu.classList.toggle('open');
-    }
-</script>
+<script src="../script.js"></script>
+
 <main>
 <br/>
 

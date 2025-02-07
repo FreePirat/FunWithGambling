@@ -5,6 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Poker</title>
     <link rel="stylesheet" href="../styles.css">
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        .card { display: inline-block; margin: 10px; padding: 10px; border: 1px solid #000; }
+        .hidden { visibility: hidden; }
+        .button-container { display: flex; justify-content: center; gap: 10px;
+        margin-top: 20px;}
+        button { font-size: x-large; }
+    </style>
 </head>
 <body>
 <header>
@@ -13,31 +21,6 @@
         <div id="avatar" class="guest-avatar"></div>
     </button>
 </header>
-<script>
-    let isSignedIn = false;
-    const avatarButton = document.getElementById('avatarBtn');
-    const avatar = document.getElementById('avatar');
-    
-    function updateAvatar() {
-        if (isSignedIn) {
-            avatar.classList.remove('guest-avatar');
-            avatar.classList.add('profile-avatar');
-        } else {
-            avatar.classList.remove('profile-avatar');
-            avatar.classList.add('guest-avatar');
-        }
-    }
-    
-    avatarButton.addEventListener('click', () => {
-        if (isSignedIn) {
-            alert('Go to your profile page.');
-        } else {
-            alert('Please sign in.');
-        }
-    });
-
-    updateAvatar();
-</script>
 
 <nav class="menu">
     <a href="../index.html">Home</a>
@@ -47,18 +30,37 @@
         &copy; 2025 Fun With Gambling
     </div>
 </nav>
-<button class="menu-button" onclick="toggleMenu()">☰</button>
+<button class="menu-button">☰</button>
 
-<script>
-    const menu = document.querySelector('.menu');
-    const button = document.querySelector('.menu-button');
-    
-    function toggleMenu() {
-        menu.classList.toggle('open');
-    }
-</script>
+<script src="../script.js"></script>
+
 <main>
 <br/>
+
+<h1 class="section">Texas Hold'em Poker</h1>
+<div class="textbox">
+    <div class="button-container">
+        <button id="start-button" onclick="startGame()">Start Game</button>
+    </div>
+    
+    <div id="game-area" class="hidden">
+        <p>Chips: <span id="chips">100</span></p>
+        <h2>Your Hand</h2>
+        <div id="player-hand"></div>
+        <h2>Community Cards</h2>
+        <div id="community-cards"></div>
+        <h2>Dealer's Hand</h2>
+        <div id="dealer-hand"></div>
+
+        <div class="button-container">
+            <button id="call-button" class="hidden" onclick="placeBet(minBet)">Call</button>
+            <button id="bet-button" class="hidden" onclick="promptBet()">Bet</button>
+            <button id="fold-button" class="hidden" onclick="foldGame()">Fold</button>
+        </div>
+    </div>
+
+</div>
+<script src="poker.js"></script>
 
 <br/>
 <footer>

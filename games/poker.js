@@ -109,7 +109,7 @@ function dealCard() {
 }
 
 function placeBet(amount) {
-    if (amount > playerCoins) {
+    if (amount > playerCoins || amount < 10) {
         alert("Not enough chips!");
         return;
     }

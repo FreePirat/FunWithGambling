@@ -7,12 +7,43 @@ let pot = 0;
 let minBet = 10;
 let gameStage = 0;
 
-function displayCards(cards) {
-    if (cards.length === 0) return "<p>No cards</p>";
+function createDeck() {
+    let suits = ["hearts", "diamonds", "clubs", "spades"];
+    let values = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"];
+    let newDeck = [];
+    for (let suit of suits) {
+        for (let value of values) {
+            newDeck.push({ value, suit });
+        }
+    }
+    return shuffleDeck(newDeck);
+}
 
-    return cards.map(card => 
-        `<div class="card">${card.value} of ${card.suit}</div>`
-    ).join('');
+function displayCards(cards) {
+    return `
+        <div class="card-container">
+            ${cards.map(card => {
+                const suit = getSuitEmoji(card.suit);
+                return `
+                    <div class="card">
+                        <div class="suit-top">${suit}</div>
+                        <div class="card-number">${card.value}</div>
+                        <div class="suit-bottom">${suit}</div>
+                    </div>
+                `;
+            }).join('')}
+        </div>
+    `;
+}
+
+function getSuitEmoji(suit) {
+    switch (suit) {
+        case 'hearts': return '♥️';
+        case 'diamonds': return '♦️';
+        case 'clubs': return '♣️';
+        case 'spades': return '♠️';
+        default: return '?';
+    }
 }
 
 function updateUI() {
@@ -28,21 +59,6 @@ function updateUI() {
     } else {
         document.getElementById("dealer-hand").innerHTML = displayCards(dealerHand);
     }
-}
-
-
-
-
-function createDeck() {
-    let suits = ["hearts", "diamonds", "clubs", "spades"];
-    let values = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"];
-    let newDeck = [];
-    for (let suit of suits) {
-        for (let value of values) {
-            newDeck.push({ value, suit });
-        }
-    }
-    return shuffleDeck(newDeck);
 }
 
 function shuffleDeck(deck) {
@@ -138,7 +154,6 @@ function evaluateHand(cards) {
     let ranks = cards.map(card => card.value);
     let suits = cards.map(card => card.suit);
 
-    // Convert face cards into numbers for easier ranking
     let values = ranks.map(val => (val === "A" ? 14 : val === "K" ? 13 : val === "Q" ? 12 : val === "J" ? 11 : parseInt(val)));
     values.sort((a, b) => b - a); // Sort highest to lowest
 
@@ -148,10 +163,40 @@ function evaluateHand(cards) {
     let triples = Object.values(counts).filter(count => count === 3).length;
     let quads = Object.values(counts).filter(count => count === 4).length;
 
-    let isFlush = new Set(suits).size === 1;
-    let isStraight = values.length === 5 && (values[0] - values[4] === 4);
-    
-    if (isStraight && isFlush) return { rank: "Straight Flush", value: 8 };
+    let suitCount = {};
+    cards.forEach(card => {
+        suitCount[card.suit] = (suitCount[card.suit] || []).concat(card);
+    });
+
+    let flushCards = Object.values(suitCount).find(suitGroup => suitGroup.length >= 5);
+    let isFlush = !!flushCards;
+
+    let uniqueValues = [...new Set(values)];
+    uniqueValues.sort((a, b) => b - a);
+
+    let isStraight = false;
+    for (let i = 0; i <= uniqueValues.length - 5; i++) {
+        if (uniqueValues[i] - uniqueValues[i + 4] === 4) {
+            isStraight = true;
+            break;
+        }
+    }
+
+    let isStraightFlush = false;
+    if (isFlush && flushCards.length >= 5) {
+        let flushValues = flushCards.map(card => card.value)
+            .map(val => (val === "A" ? 14 : val === "K" ? 13 : val === "Q" ? 12 : val === "J" ? 11 : parseInt(val)))
+            .sort((a, b) => b - a);
+
+        for (let i = 0; i <= flushValues.length - 5; i++) {
+            if (flushValues[i] - flushValues[i + 4] === 4) {
+                isStraightFlush = true;
+                break;
+            }
+        }
+    }
+
+    if (isStraightFlush) return { rank: "Straight Flush", value: 8 };
     if (quads) return { rank: "Four of a Kind", value: 7 };
     if (triples && pairs) return { rank: "Full House", value: 6 };
     if (isFlush) return { rank: "Flush", value: 5 };
@@ -159,9 +204,10 @@ function evaluateHand(cards) {
     if (triples) return { rank: "Three of a Kind", value: 3 };
     if (pairs === 2) return { rank: "Two Pair", value: 2 };
     if (pairs === 1) return { rank: "One Pair", value: 1 };
-    
+
     return { rank: "High Card", value: 0 }; // Default to high card
 }
+
 
 
 function showdown() {

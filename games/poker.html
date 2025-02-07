@@ -5,14 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Poker</title>
     <link rel="stylesheet" href="../styles.css">
-    <style>
-        body { font-family: Arial, sans-serif; text-align: center; }
-        .card { display: inline-block; margin: 10px; padding: 10px; border: 1px solid #000; }
-        .hidden { visibility: hidden; }
-        .button-container { display: flex; justify-content: center; gap: 10px;
-        margin-top: 20px;}
-        button { font-size: x-large; }
-    </style>
+    <link rel="stylesheet" href="poker.css">
 </head>
 <body>
 <header>
@@ -43,8 +36,9 @@
         <button id="start-button" onclick="startGame()">Start Game</button>
     </div>
     
+    <p id="chipAmt">Coins: <span id="chips">100</span></p>
     <div id="game-area" class="hidden">
-        <p>Chips: <span id="chips">100</span></p>
+        
         <h2>Your Hand</h2>
         <div id="player-hand"></div>
         <h2>Community Cards</h2>

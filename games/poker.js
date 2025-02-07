@@ -55,9 +55,11 @@ function updateUI() {
         document.getElementById("community-cards").innerHTML = displayCards(communityCards.slice(0, gameStage + 2));
     }
     if (gameStage < 3) {
-        document.getElementById("dealer-hand").innerHTML = "<p>Dealer has two cards</p>";
+        document.getElementById("dealer-hand").innerHTML = "";
+        document.getElementById("dealer-title").innerHTML = "";
     } else {
         document.getElementById("dealer-hand").innerHTML = displayCards(dealerHand);
+        document.getElementById("dealer-title").innerHTML = "Dealer's Cards";
     }
 }
 
@@ -90,7 +92,8 @@ function startGame() {
         document.getElementById("game-area").classList.remove("hidden");
 
         document.getElementById("player-hand").innerHTML = "";
-        document.getElementById("dealer-hand").innerHTML = "<p>Dealer has two cards</p>";
+        document.getElementById("dealer-hand").innerHTML = "";
+        document.getElementById("dealer-title").innerHTML = "";
         document.getElementById("community-cards").innerHTML = "";
 
         document.getElementById("call-button").classList.remove("hidden");
@@ -218,6 +221,7 @@ function showdown() {
     console.log(`Dealer has: ${dealerBestHand.rank}`);
 
     document.getElementById("dealer-hand").innerHTML = displayCards(dealerHand);
+    document.getElementById("dealer-title").innerHTML = "Dealer's Cards";
 
     if (playerBestHand.value > dealerBestHand.value) {
         setTimeout(() => {
@@ -258,6 +262,7 @@ function resetGame() {
 
         document.getElementById("player-hand").innerHTML = "";
         document.getElementById("dealer-hand").innerHTML = "";
+        document.getElementById("dealer-title").innerHTML = "";
         document.getElementById("community-cards").innerHTML = "";
 
         updateUI();

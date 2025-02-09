@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blackjack</title>
     <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="styles/blackjack.css">
 </head>
 <body>
 <header>
@@ -28,6 +29,34 @@
 
 <main>
 <br/>
+
+<h1 class="section">Blackjack</h1>
+<div class="textbox">
+    <div class="button-container">
+        <button id="start-button" onclick="startGame()">Bet 20 Coins</button>
+    </div>
+    
+    <p id="chipAmt">Coins: <span id="chips">100</span></p>
+    <div id="game-area" class="hidden">
+        
+        <h2>Your Hand</h2>
+        <h2 id="player-hand-value"></h2>
+        <div id="player-hand"></div>
+        
+        
+        <h2 id="dealer-title">Dealer's Hand</h2>
+        <h2 id="dealer-hand-value"></h2>
+        <div id="dealer-hand"></div>
+
+        <div class="button-container">
+            <button id="hit" class="hidden" onclick="hit()">Hit</button>
+            <button id="stand" class="hidden" onclick="stand()">Stand</button>
+        </div>
+    </div>
+
+</div>
+<script src="js/blackjack.js"></script>
+
 
 <br/>
 <footer>

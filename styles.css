@@ -1,240 +1,361 @@
+/* ==========================
+   GLOBAL STYLES / MAIN PAGE
+========================== */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #0a000f;
-    min-height: 100vh;
-  }
+  font-family: 'Poppins', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #0a0f1a;
+  color: #f1f1f1;
+  min-height: 100vh;
+}
 
-  .container {
-    position: relative;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-  }
+.container {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-  .menu-button {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 50px;
-    height: 100vh; 
-    background-color: #800000;
-    border: none;
-    cursor: pointer;
-    z-index: 2;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: left 0.3s ease;
-    border-radius: 0 5px 5px 0;
-    z-index: 101;
-    border: 2px solid black;
-    color: white;
-  }
+.menu-button {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(145deg, #ff3e6c, #ff0055);
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  color: #fff;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 15px rgba(255, 0, 85, 0.6);
+  transition: transform 0.3s ease;
+  z-index: 101;
+}
+.menu-button:hover {
+  transform: scale(1.1);
+}
 
+.menu {
+  position: fixed;
+  top: 0;
+  left: -400px;
+  width: 400px;
+  height: 100%;
+  background: #141824;
+  display: flex;
+  flex-direction: column;
+  padding-top: 80px;
+  transition: left 0.3s ease;
+  box-shadow: 5px 0 15px rgba(0, 0, 0, 0.5);
+  z-index: 100;
+}
+
+.menu.open {
+  left: 0px;
+}
+
+.menu a {
+  color: #00ffc3;
+  text-decoration: none;
+  font-size: 1.5rem;
+  padding: 15px 25px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: background 0.3s, color 0.3s;
+}
+.menu a:hover {
+  background: rgba(255, 0, 85, 0.2);
+  color: #fff;
+}
+
+.menu-footer {
+  margin-top: auto;
+  padding: 15px;
+  text-align: center;
+  font-size: 1rem;
+  color: #aaa;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+header {
+  position: sticky;
+  top: 0;
+  background: #1a1f2b;
+  color: #fff;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.5);
+  z-index: 99;
+}
+.header-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-shadow: 0 0 8px rgba(255, 0, 85, 0.7);
+  flex-grow: 1;
+  text-align: center;
+}
+
+.avatar-btn {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  border: 2px solid #00ffc3;
+  background: #0e141f;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 255, 195, 0.5);
+}
+
+main {
+  margin: 40px auto;
+  max-width: 1000px;
+  padding: 0 20px;
+  transition: margin-left 0.3s ease;
+}
+.center {
+  text-align: center;
+}
+
+.section {
+  background: linear-gradient(135deg, #22293a, #1a1f2b);
+  color: #ff3e6c;
+  font-size: 1.6rem;
+  padding: 15px;
+  margin: 25px 0 10px;
+  border-radius: 8px;
+  text-shadow: 0 0 10px rgba(255, 62, 108, 0.5);
+}
+
+.textbox {
+  background: #1c2333;
+  border: 1px solid #3a4a6f;
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+.textbox img {
+  width: 220px;
+  height: 220px;
+  margin: 10px;
+  border-radius: 10px;
+  transition: transform 0.2s, filter 0.2s;
+}
+.textbox img:hover {
+  transform: scale(1.05);
+  filter: brightness(0.8);
+}
+
+form {
+  background: #1c2333;
+  border: 1px solid #3a4a6f;
+  padding: 20px;
+  border-radius: 8px;
+  margin: 20px 0;
+  display: grid;
+  place-items: center;
+}
+label {
+  color: #ddd;
+  font-weight: bold;
+}
+input, textarea, button {
+  width: 80%;
+  margin: 8px 0;
+  padding: 10px;
+  background: #101624;
+  border: 1px solid #00ffc3;
+  border-radius: 5px;
+  color: #f1f1f1;
+  font-size: 1rem;
+}
+button {
+  background: linear-gradient(145deg, #ff3e6c, #ff0055);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+button:hover {
+  transform: scale(1.05);
+}
+
+footer {
+  background: #101624;
+  color: #00ffc3;
+  text-align: center;
+  padding: 20px 0;
+  margin-top: 40px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+footer a {
+  color: #00ffc3;
+  text-decoration: none;
+  margin: 0 10px;
+}
+footer a:hover {
+  color: #ff3e6c;
+}
+
+@media (max-width: 768px) {
   .menu {
-    position: fixed;
-    top: 0;
-    left: -400px;
-    width: 400px;
-    height: 100%;
-    background-color: #27003a;
-    display: flex;
-    flex-direction: column;
-    padding-bottom: 20px;
-    transition: left 0.3s ease;
-    z-index: 100;
+    width: 300px;
+    left: -300px;
   }
-
-  .menu a {
-    color: rgb(62, 238, 200);
-    text-decoration: none;
-    font-size: xx-large;
-    transition: color 0.3s ease;
-    display: inline-block;
-    padding: 10px 20px;
-    border-bottom: 2px solid #2c2013;
-    line-height: 60px;
+  .menu.open{
+    left: 0px;
   }
-
-  .menu-footer {
-    color: white;
-    margin-top: auto; 
-    padding-top: 20px; 
-    font-size: xx-large; 
-    background-color: #07004b
-  } 
-
-  .menu a:hover {
-    background-color: #4B3621;
-    color: rgb(255, 255, 255);
-    padding: 10px 20px;
-  }
-
-  .menu.open {
-    left: 0;
-  }
-
-  .menu.open + .menu-button {
-    left: 400px;
-  }
-
-  main {
-    margin-left: 60px;
-    transition: margin-left 0.3s ease;
-  }
-
-  .center{
-    text-align: center;
-  }
-
-  p{
-    font-size: x-large;
-  }
-  
-  .textbox{
-    background-color: #b486cf;
-    border: 2px, solid, #b561e6;
-    padding: 10px;
-    margin-top: 0;
-  }
-
-  .textbox a{
-    text-decoration: none;
-  }
-
-  .textbox img:hover{
-    filter: brightness(0.75);
-  }
-
-  .section{
-    background-color: #a275f5;
-    border: 2px, solid, #6338b4;
-    margin-bottom: 0;
-  }
-
-  footer{
-    background-color: #07004b;
-    color: #FFD700;
-    text-align: center;
-    padding: 20px 0;
-    width: 100%;
-  }
-
-  footer a {
-    color: #FFD700;
-    text-decoration: none;
-  }
-
-  footer a:hover {
-    color: #ffffff;
-  }
-
-  header {
-    position: sticky;
-    top: 0;
-    background-color: #800000;
-    color: #ffffff;
-    padding: 10px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 99;
-    border: 2px solid black;
-  }
-
-  .header-title {
-    font-size: xx-large;
-    font-weight: bold;
-    margin: 0;
-    margin-left: 7%;
-    flex-grow: 1;
-    text-align: center;
-  }
-
-  .avatar-btn {
-    width: 40px; 
-    height: 40px; 
-    border-radius: 50%;
-    border: none;
-    background-color: #048100;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer; 
-    overflow: hidden;
-  }
-
-  .guest-avatar {
-    background-image: url('img/guest-avatar.png');
-    background-size: cover;
-    background-position: center;
-    width: 100%;
-    height: 100%; 
-  }
-
-  .profile-avatar {
-    background-image: url('profile-placeholder.png');
-    background-size: cover;
-    background-position: center;
+  .menu-button{
+    top: 60px;
     width: 40px;
     height: 40px;
-    border-radius: 50%;
   }
-
-  form {
-    max-width: 100%;
-    margin: 20px auto;
-    padding: 20px;
-    border: 2px solid #33003d;
-    background-color: #573f83;
-    border-radius: 5px;
-    display: grid;
-    place-items: center;
-    margin-top: 0;
+  .menu.open + .menu-button{
+    top: 25px;
   }
+}
 
-  label, input, textarea, button {
-    display: block;
-    margin-bottom: 10px;
-    width: 40%;
-    padding: 8px;
-    box-sizing: border-box;
-  }
+/* ==========================
+   GAME-SPECIFIC STYLES
+   Only applies to pages with <main class="game-page">
+========================== */
+.game-page .hidden { visibility: hidden; }
 
-  label{
-    color: white;
-  }
+.game-page .button-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
 
-  input, textarea {
-    background-color: #1E1E1E;
-    color: #E0E0E0;
-    border: 1px solid #BB86FC;
-    border-radius: 5px;
-  }
+.game-page button { font-size: x-large; }
 
-  .textbox img{
-    width: 200px;
-    height: 200px;
-  }
+/* CARD STYLES (Blackjack & Poker) */
+.game-page .card-container {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 15px;
+}
 
-  @media (max-width: 768px) {
-    .menu {
-      left: -300px;
-      width: 300px;
-      padding-left: 0px;
-    }
+.game-page .card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 140px;
+  border: 2px solid black;
+  border-radius: 10px;
+  background-color: white;
+  color: black;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  position: relative;
+}
 
-    .menu.open + .menu-button {
-      left: 300px;
-    }
+.game-page .card .suit-top,
+.game-page .card .suit-bottom {
+  position: absolute;
+  font-size: 18px;
+}
 
-    label, input, textarea, button {
-      width: 80%;
-    }
+.game-page .card .suit-top { top: 5px; left: 5px; }
+.game-page .card .suit-bottom { bottom: 5px; right: 5px; transform: rotate(180deg); }
 
-    main{
-      margin-left: 50px;
-    }
-  }
+.game-page #chipAmt,
+.game-page .balance,
+.game-page #winAmt { font-size: xx-large; }
+
+/* SLOT MACHINE */
+.game-page .slot-machine {
+  display: inline-block;
+  background: linear-gradient(145deg, #1a1f2b, #22293a);
+  padding: 50px 30px;
+  border-radius: 12px;
+  box-shadow: 0 0 30px rgba(255, 62, 108, 0.5), 0 0 20px rgba(0, 255, 195, 0.3);
+  text-align: center;
+  max-width: 500px;
+  margin: 0 auto;
+  border: 2px solid #ff3e6c;
+}
+
+.game-page .reels {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.game-page .reel {
+  width: 120px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 64px;
+  font-weight: bold;
+  background: #1c2333;
+  border: 2px solid #ff3e6c;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 0 15px rgba(255, 62, 108, 0.6), inset 0 0 10px rgba(0, 255, 195, 0.3);
+  color: #fff;
+}
+
+.game-page .centerbutton {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+}
+
+.game-page .spin {
+  width: 150px;
+  height: 60px;
+  font-size: 24px;
+  border-radius: 10px;
+  background: linear-gradient(145deg, #ff3e6c, #ff0055);
+  color: #fff;
+  font-weight: bold;
+  box-shadow: 0 0 15px rgba(255, 62, 108, 0.7), 0 0 10px rgba(0, 255, 195, 0.4);
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.game-page .spin:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(255, 62, 108, 0.9), 0 0 20px rgba(0, 255, 195, 0.6);
+}
+
+.game-page .balance,
+.game-page #winAmt {
+  font-size: xx-large;
+  color: #00ffc3;
+  text-shadow: 0 0 8px rgba(0, 255, 195, 0.5);
+}
+
+/* RESPONSIVE */
+@media (max-width: 1280px) {
+  .game-page .reel { width: 100px; height: 100px; font-size: 48px; }
+  .game-page .spin { width: 130px; height: 50px; font-size: 20px; }
+}
+
+@media (max-width: 768px) {
+  .game-page .reel { width: 70px; height: 70px; font-size: 36px; }
+  .game-page .spin { width: 120px; height: 45px; font-size: 18px; }
+  .game-page .slot-machine { padding: 30px 20px; max-width: 90%; }
+  .game-page #winAmt,
+  .game-page .balance { font-size: larger; }
+}

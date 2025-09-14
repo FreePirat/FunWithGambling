@@ -19,3 +19,11 @@ A slot machine that displays emojis for the spinners. The neon style and nice vi
 ### 3. Blackjack ###
 
 Try to get as close to 21 as you can, but be careful, going over means you lose automatically. You also face a computer that has the same goal as you.
+
+- - -
+
+## Future Plans ##
+
+I'm currently planning on adding a working account feature, which will save the amount of coins you've made! I additionally plan on remaking the icons for the games and possibly adding new ones as well.
+
+- - -

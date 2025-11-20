@@ -13,8 +13,8 @@
     <header>
         <h1 class="header-title">Fun With Gambling!!!</h1>
 
-        <button class="avatar-btn" id="avatarBtn">
-          <div id="avatar" class="guest-avatar"></div>
+        <button id="avatarBtn" class="avatar-btn">
+          <img src="img/guest-avatar.png" alt="Guest Avatar" style="width:32px; height:32px; border-radius:50%;">
         </button>
     </header>
 
@@ -78,7 +78,84 @@
         <a href="https://www.linkedin.com/in/jake-soucy-38b540260/">My LinkedIn</a>
     </p>
     </footer>
+
+    <section class="websites-section" aria-label="Other websites">
+
+      <div class="websites-scroll" id="websitesScroll" role="list">
+        <article class="website-card" role="listitem" onclick="window.open('https://freepirat.github.io/portfolio/', '_blank')">
+          <div class="website-image"><img src="img/Portfolio.png" alt="Developer Portfolio"></div>
+          <div class="website-content">
+            <h3>Developer Portfolio</h3>
+            <p>Displays my background in programming</p>
+          </div>
+        </article>
+
+        <article class="website-card" role="listitem" onclick="window.open('https://freepirat.github.io/Tiermaker2/', '_blank')">
+          <div class="website-image"><img src="img/TierMaker.png" alt="Tiermaker2"></div>
+          <div class="website-content">
+            <h3>TierMaker2</h3>
+            <p>Allows users to create and share tier lists for various topics.</p>
+          </div>
+        </article>
+
+        <article class="website-card" role="listitem" onclick="window.open('https://freepirat.github.io/ThemeTussle/', '_blank')">
+          <div class="website-image"><img src="img/ThemeTussleWebsite.png" alt="ThemeTussle"></div>
+          <div class="website-content">
+            <h3>ThemeTussle</h3>
+            <p>This is a website to give more information and details on the fighting game I've created, Theme Tussle.</p>
+          </div>
+        </article>
+
+          <article class="website-card" role="listitem" onclick="window.open('https://freepirat.github.io/PiratDiment-Portfolio/', '_blank')">
+            <div class="website-image"><img src="img/PiratDiment-Portfolio.png" alt="PiratDimentPortfolio"></div>
+            <div class="website-content">
+              <h3>YouTube Portfolio</h3>
+              <p>A website demonstrating my editing history.</p>
+            </div>
+          </article>
+      </div>
+    </section>
+
     </main>
 
 </body>
 </html>
+
+<script>
+  (function () {
+    const scrollEl = document.getElementById('websitesScroll');
+
+    const cards = Array.from(scrollEl.querySelectorAll('.website-card'));
+    const total = cards.length;
+    let currentIndex = 0;
+    let scrollTimeout = null;
+
+    function scrollToIndex(index) {
+      if (index < 0) index = 0;
+      if (index > total - 1) index = total - 1;
+      const card = cards[index];
+      const left = card.offsetLeft - (scrollEl.offsetWidth - card.offsetWidth) / 2;
+      scrollEl.scrollTo({ left, behavior: 'smooth' });
+      currentIndex = index;
+    }
+
+
+    scrollEl.addEventListener('scroll', () => {
+      if (scrollTimeout) clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(() => {
+        // compute index by finding which card is closest to center
+        const center = scrollEl.scrollLeft + scrollEl.offsetWidth / 2;
+        let closest = 0;
+        let closestDist = Infinity;
+        cards.forEach((card, i) => {
+          const cardCenter = card.offsetLeft + card.offsetWidth / 2;
+          const dist = Math.abs(center - cardCenter);
+          if (dist < closestDist) {
+            closestDist = dist;
+            closest = i;
+          }
+        });
+      }, 80);
+    });
+  })();
+  </script>
